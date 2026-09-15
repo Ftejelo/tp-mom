@@ -231,7 +231,7 @@ cython_debug/
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+.idea/
 
 ### Python Patch ###
 # Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
@@ -289,8 +289,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/python,go,linux,macos,windows,visualstudiocode
-
-# Failsafe to avoid pushing the testing solution to the git commit history
-python/src/common/middleware/middleware_rabbitmq.py
 
 golang/internal/solution
