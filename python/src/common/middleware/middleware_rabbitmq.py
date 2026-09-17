@@ -57,7 +57,7 @@ class MessageMiddlewareExchangeRabbitMQ(MessageMiddlewareExchange):
                 routing_key=routing_key,
             )
 
-        def _on_message(channel, method, body):
+        def _on_message(channel, method, properties, body):
             if not self._should_consume:
                 channel.basic_nack(delivery_tag=method.delivery_tag, requeue=True)
                 channel.stop_consuming()
