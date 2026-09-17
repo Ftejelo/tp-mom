@@ -8,9 +8,13 @@ class MessageMiddlewareQueueRabbitMQ(MessageMiddlewareQueue):
     def __init__(self, host, queue_name):
         self.host = host
         self.queue_name = queue_name
+        self._connection = pika.BlockingConnection(pika.ConnectionParameters(host=self.host))
+        self._channel = self._connection.channel()
+        self._channel.queue_declare(queue=self.queue_name)
 
     def close(self):
-        pass
+        if self._connection and self._connection.is_open:
+            self._connection.close()
 
     def send(self, message):
         pass
